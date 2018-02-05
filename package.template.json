@@ -31,6 +31,7 @@
     "tracer": "TRACERVERSION",
     "log4js": "LOG4JSVERSION",
     "node-uuid": "UUIDVERSION",
+    "mocha": "MOCHAVERSION",
     "sandboxed-module": "SANDBOXEDVERSION"
   },
   "devDependencies": {
@@ -39,7 +40,7 @@
   },
   "scripts": {
     "start": "node --expose-gc ./app.js",
-    "unittest": "mocha --reporter spec --expose-gc --timeout 20000 --no-colors ./test/test-*.js"
+    "unittest": "./node_modules/.bin/mocha --reporter spec --expose-gc --timeout 20000 --no-colors ./test/test-*.js"
   },
   "engines": {
     "node": "NODEVERSION"

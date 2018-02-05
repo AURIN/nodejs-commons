@@ -35,7 +35,7 @@ Objects:
 ## Pre-requirements
 
 * Node.js v6.x.x
-* Mocha v2.5.x
+* NPM v3.10.x
 
 
 ## Installation
