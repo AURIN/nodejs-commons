@@ -2,10 +2,12 @@
   "name": "ARTIFACTID",
   "version": "ARTIFACTVERSION",
   "description": "Library of functions used by all Node.js projects in AURIN",
-  "licenses" : [{
-    "type": "Apache",
-    "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-  }],
+  "licenses": [
+    {
+      "type": "Apache",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  ],
   "private": false,
   "keywords": [
     "log",
@@ -23,16 +25,22 @@
   "contributors": [],
   "main": "./commons.js",
   "dependencies": {
+    "underscore": "UNDERSCOREVERSION",
     "properties": "PROPERTIESVERSION",
     "enum": "ENUMVERSION",
     "tracer": "TRACERVERSION",
-    "node-uuid": "UUIDVERSION"
+    "log4js": "LOG4JSVERSION",
+    "node-uuid": "UUIDVERSION",
+    "sandboxed-module": "SANDBOXEDVERSION"
   },
   "devDependencies": {
     "express": "EXPRESSVERSION",
     "chai": "CHAIVERSION"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "node --expose-gc ./app.js",
+    "unittest": "mocha --reporter spec --expose-gc --timeout 20000 --no-colors ./test/test-*.js"
+  },
   "engines": {
     "node": "NODEVERSION"
   },

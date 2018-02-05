@@ -34,7 +34,8 @@ Objects:
 
 ## Pre-requirements
 
-* Node.js v4.2.x
+* Node.js v6.x.x
+* Mocha v2.5.x
 
 
 ## Installation
@@ -60,7 +61,7 @@ To run these test, following module have to be installed (versions are detailed 
 
 In addition, Maven has to be run once to write the properties file
 
-  `mvn test -Ddeployment=test -Dsystem=luca-dev`
+  `mvn compile -Ddeployment=test -Dsystem=luca-dev`
   
 
 # Unit tests:

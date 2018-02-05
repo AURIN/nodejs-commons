@@ -12,18 +12,21 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>au.org.aurin</groupId>
   <artifactId>nodejs-commons</artifactId>
-  <version>0.5.6</version>
+  <version>1.0.0</version>
 
   <properties>
     <version>${project.version}</version>
-    <nodeVersion>v0.10.x</nodeVersion>
-    <npmVersion>1.2.x</npmVersion>
+    <nodeVersion>v6.x.x</nodeVersion>
+    <npmVersion>3.x.x</npmVersion>
+    <underscoreVersion>1.8.x</underscoreVersion>
     <enumVersion>0.2.5</enumVersion>
     <tracerVersion>0.7.1</tracerVersion>
-    <chaiVersion>1.6.x</chaiVersion>
+    <chaiVersion>4.1.x</chaiVersion>
     <propertiesVersion>1.2.1</propertiesVersion>
     <expressVersion>3.2.5</expressVersion>
+    <log4jsVersion>1.1.x</log4jsVersion>
     <uuidVersion>1.4.1</uuidVersion>
+    <sandboxedVersion>2.0.3</sandboxedVersion>
   </properties>
 
   <parent>
@@ -106,7 +109,8 @@
               <target id="test" unless="skipTests">
                 <exec executable="mocha" dir="." failonerror="true">
                   <arg value="--no-colors" />
-                  <arg value="-g test-unit" />
+                  <arg value="--grep" />
+                  <arg value="test-unit" />
                 </exec>
               </target>
             </configuration>
@@ -160,6 +164,14 @@
               <value>${expressVersion}</value>
             </replacement>
             <replacement>
+              <token>LOG4JSVERSION</token>
+              <value>${log4jsVersion}</value>
+            </replacement>
+            <replacement>
+              <token>UNDERSCOREVERSION</token>
+              <value>${underscoreVersion}</value>
+            </replacement>
+            <replacement>
               <token>ENUMVERSION</token>
               <value>${enumVersion}</value>
             </replacement>
@@ -182,7 +194,11 @@
             <replacement>
               <token>UUIDVERSION</token>
               <value>${uuidVersion}</value>
-            </replacement>            
+            </replacement>
+            <replacement>
+              <token>SANDBOXEDVERSION</token>
+              <value>${sandboxedVersion}</value>
+            </replacement>
           </replacements>
         </configuration>
       </plugin>
