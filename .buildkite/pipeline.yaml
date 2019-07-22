@@ -9,8 +9,7 @@ steps:
   - label: "Sonar"
     branches: "develop"
     commands:
-      - "mvn clean verify sonar:sonar"
-  - wait
+      - "mvn clean verify"
   - label: "Deploy"
     branches: "develop"
     commands:
