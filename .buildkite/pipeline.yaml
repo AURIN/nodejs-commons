@@ -10,6 +10,7 @@ steps:
     branches: "develop"
     commands:
       - "mvn clean verify"
+  - wait
   - label: "Deploy"
     branches: "develop"
     commands:
