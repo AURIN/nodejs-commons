@@ -26,10 +26,11 @@
         <uuidVersion>1.4.1</uuidVersion>
         <underscoreVersion>1.8.x</underscoreVersion>
         <log4jsVersion>0.6.x</log4jsVersion>
-        <npmRegistry>https://repo.eresearch.unimelb.edu.au/repository/npm-aurin/</npmRegistry>
+        <npmRegistry>https://repo.aurin.cloud.edu.au/repository/npm-aurin/</npmRegistry>
         <revision>0.6.3</revision>
         <changelist>-SNAPSHOT</changelist>
         <sha1/>
+        <npm.package.name>${project.artifactId}</npm.package.name>
     </properties>
 
     <parent>
@@ -61,7 +62,6 @@
     </dependencies>
 
     <build>
-
         <plugins>
             <plugin>
                 <groupId>com.github.eirslett</groupId>
@@ -140,7 +140,7 @@
                         </replacement>
                         <replacement>
                             <token>ARTIFACTID</token>
-                            <value>${project.artifactId}</value>
+                            <value>${npm.package.name}</value>
                         </replacement>
                         <replacement>
                             <token>ARTIFACTVERSION</token>
@@ -219,6 +219,12 @@
     </developers>
 
     <profiles>
+        <profile>
+            <id>scoped</id>
+            <properties>
+                <npm.package.name>@aurin/${project.artifactId}</npm.package.name>
+            </properties>
+        </profile>
         <profile>
             <id>ci</id>
             <activation>

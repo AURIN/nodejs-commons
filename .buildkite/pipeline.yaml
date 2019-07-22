@@ -3,13 +3,16 @@ steps:
   - label: "Linting :lint-roller:"
     command: "git diff-tree --no-commit-id --name-only -r ${BUILDKITE_COMMIT} | xargs pre-commit run --files"
   - label: "Test"
+    branches: "!develop"
     commands:
       - "mvn clean verify"
   - label: "Sonar"
     branches: "develop"
     commands:
       - "mvn clean verify sonar:sonar"
+  - wait
   - label: "Deploy"
     branches: "develop"
     commands:
       - "mvn clean deploy"
+      - "mvn -Pscoped clean  deploy"
