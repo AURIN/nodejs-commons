@@ -25,7 +25,7 @@
     "properties": "PROPERTIESVERSION",
     "enum": "ENUMVERSION",
     "tracer": "TRACERVERSION",
-    "node-uuid": "UUIDVERSION",
+    "uuid": "UUIDVERSION",
     "express": "EXPRESSVERSION",
     "underscore": "UNDERSCOREVERSION",
     "log4js": "LOG4JSVERSION"

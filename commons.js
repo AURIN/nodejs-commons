@@ -23,7 +23,7 @@ var commons = exports;
 var cluster = require("cluster");
 var child_process = require("child_process");
 var util = require("util");
-var uuid = require("node-uuid");
+var uuid = require("uuid/v4");
 var log4js = require("log4js");
 
 // Default values of properties (they are set in absence of
@@ -549,7 +549,7 @@ commons.isEvalSafe = function (expr) {
  * @return {String} UUID as 32 hex digits
  */
 commons.generateCouchDBUUID = function () {
-  return uuid.v4().replace(/-/g, "");
+  return uuid().replace(/-/g, "");
 };
 
 /**

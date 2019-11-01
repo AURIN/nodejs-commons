@@ -7,38 +7,34 @@
   under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
   OR CONDITIONS OF ANY KIND, either express or implied. See the License for
   the specific language governing permissions and limitations under the License. -->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>nodejs-commons</artifactId>
-    <version>${revision}${sha1}${changelist}</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>au.org.aurin</groupId>
+  <artifactId>nodejs-commons</artifactId>
+  <version>1.0.0</version>
 
-    <properties>
-        <nodeVersion>v4.2.6</nodeVersion>
-        <enumVersion>0.2.5</enumVersion>
-        <tracerVersion>0.7.1</tracerVersion>
-        <chaiVersion>3.4.x</chaiVersion>
-        <mochaVersion>2.5.x</mochaVersion>
-        <sandboxedVersion>2.0.x</sandboxedVersion>
-        <propertiesVersion>1.2.1</propertiesVersion>
-        <expressVersion>3.2.5</expressVersion>
-        <uuidVersion>1.4.1</uuidVersion>
-        <underscoreVersion>1.8.x</underscoreVersion>
-        <log4jsVersion>0.6.x</log4jsVersion>
-        <npmRegistry>https://repo.aurin.cloud.edu.au/repository/npm-aurin/</npmRegistry>
-        <revision>0.6.3</revision>
-        <changelist>-SNAPSHOT</changelist>
-        <sha1/>
-        <npm.package.name>${project.artifactId}</npm.package.name>
-    </properties>
+  <properties>
+    <version>${project.version}</version>
+    <nodeVersion>v12.13.0</nodeVersion>
+    <npmVersion>6.12.0</npmVersion>
+    <enumVersion>0.2.5</enumVersion>
+    <tracerVersion>0.7.1</tracerVersion>
+    <chaiVersion>3.4.x</chaiVersion>
+    <mochaVersion>6.2.x</mochaVersion>
+    <sandboxedVersion>2.0.x</sandboxedVersion>
+    <propertiesVersion>1.2.1</propertiesVersion>
+    <expressVersion>4.17.x</expressVersion>
+    <uuidVersion>3.3.3</uuidVersion>
+    <underscoreVersion>1.8.x</underscoreVersion>
+    <log4jsVersion>0.6.x</log4jsVersion>
+  </properties>
 
-    <parent>
-        <groupId>au.org.aurin</groupId>
-        <artifactId>aurin-project</artifactId>
-        <version>1.0.0</version>
-        <relativePath/>
-    </parent>
+  <parent>
+    <groupId>au.org.aurin</groupId>
+    <artifactId>aurin-project</artifactId>
+    <version>1.4.0</version>
+  </parent>
 
     <repositories>
         <repository>
