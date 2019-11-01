@@ -34,7 +34,8 @@ Objects:
 
 ## Pre-requirements
 
-* Node.js v4.2.x
+* Node.js v12.13.x
+* Npm V6.2.x
 
 
 ## Installation
@@ -61,12 +62,7 @@ To run these test, following module have to be installed (versions are detailed 
 In addition, Maven has to be run once to write the properties file
 
   `mvn test -Ddeployment=test -Dsystem=luca-dev`
-  
 
-# Unit tests:
-
-  `npm run unitest`
-  
   
 # Cluster tests (for the cluster test to work, http://www.google.com must be reachable):
 
