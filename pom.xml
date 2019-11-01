@@ -180,6 +180,10 @@
                             <value>${mochaVersion}</value>
                         </replacement>
                         <replacement>
+                            <token>MOCHAJUNITREPORTERVERSION</token>
+                            <value>${mochajunitreporterVersion}</value>
+                        </replacement>
+                        <replacement>
                             <token>PROPERTIESVERSION</token>
                             <value>${propertiesVersion}</value>
                         </replacement>
