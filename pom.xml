@@ -12,7 +12,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>au.org.aurin</groupId>
   <artifactId>nodejs-commons</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 
   <properties>
     <version>${project.version}</version>
@@ -22,6 +22,7 @@
     <tracerVersion>0.7.1</tracerVersion>
     <chaiVersion>3.4.x</chaiVersion>
     <mochaVersion>6.2.x</mochaVersion>
+    <mochajunitreporterVersion>1.23.x</mochajunitreporterVersion>
     <sandboxedVersion>2.0.x</sandboxedVersion>
     <propertiesVersion>1.2.1</propertiesVersion>
     <expressVersion>4.17.x</expressVersion>
@@ -177,6 +178,10 @@
                         <replacement>
                             <token>MOCHAVERSION</token>
                             <value>${mochaVersion}</value>
+                        </replacement>
+                        <replacement>
+                            <token>MOCHAJUNITREPORTERVERSION</token>
+                            <value>${mochajunitreporterVersion}</value>
                         </replacement>
                         <replacement>
                             <token>PROPERTIESVERSION</token>

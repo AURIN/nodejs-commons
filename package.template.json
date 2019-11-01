@@ -31,7 +31,7 @@
     "log4js": "LOG4JSVERSION"
   },
   "devDependencies": {
-    "mocha-junit-reporter": "1.15.0",
+    "mocha-junit-reporter": "MOCHAJUNITREPORTERVERSION",
     "mocha": "MOCHAVERSION",
     "chai": "CHAIVERSION",
     "sandboxed-module": "SANDBOXEDVERSION",
