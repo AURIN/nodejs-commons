@@ -7,63 +7,95 @@
   under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
   OR CONDITIONS OF ANY KIND, either express or implied. See the License for
   the specific language governing permissions and limitations under the License. -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>au.org.aurin</groupId>
-  <artifactId>nodejs-commons</artifactId>
-  <version>1.0.0</version>
-
-  <properties>
-    <version>${project.version}</version>
-    <nodeVersion>v12.13.0</nodeVersion>
-    <npmVersion>6.12.0</npmVersion>
-    <enumVersion>0.2.5</enumVersion>
-    <tracerVersion>0.7.1</tracerVersion>
-    <chaiVersion>3.4.x</chaiVersion>
-    <mochaVersion>6.2.x</mochaVersion>
-    <sandboxedVersion>2.0.x</sandboxedVersion>
-    <propertiesVersion>1.2.1</propertiesVersion>
-    <expressVersion>4.17.x</expressVersion>
-    <uuidVersion>3.3.3</uuidVersion>
-    <underscoreVersion>1.8.x</underscoreVersion>
-    <log4jsVersion>0.6.x</log4jsVersion>
-  </properties>
-
   <parent>
     <groupId>au.org.aurin</groupId>
     <artifactId>aurin-project</artifactId>
     <version>1.4.0</version>
   </parent>
-
+  <groupId>au.org.aurin</groupId>
+  <artifactId>nodejs-commons</artifactId>
+  <version>1.0.0</version>
+  <developers>
+    <developer>
+      <id>LM</id>
+      <name>Luca Morandini</name>
+      <email>lmorandini [you know] unimelb.edu.au</email>
+    </developer>
+  </developers>
+  <issueManagement>
+    <system>Redmine</system>
+    <url>https://projects.eresearch.unimelb.edu.au/</url>
+  </issueManagement>
+  <properties>
+    <expressVersion>4.17.x</expressVersion>
+    <sandboxedVersion>2.0.x</sandboxedVersion>
+    <nodeVersion>v12.13.0</nodeVersion>
+    <uuidVersion>3.3.3</uuidVersion>
+    <chaiVersion>3.4.x</chaiVersion>
+    <propertiesVersion>1.2.1</propertiesVersion>
+    <npmVersion>6.12.0</npmVersion>
+    <underscoreVersion>1.8.x</underscoreVersion>
+    <version>${project.version}</version>
+    <mochaVersion>6.2.x</mochaVersion>
+    <log4jsVersion>0.6.x</log4jsVersion>
+    <enumVersion>0.2.5</enumVersion>
+    <tracerVersion>0.7.1</tracerVersion>
+  </properties>
   <repositories>
     <repository>
-      <id>aurin</id>
-      <url>https://mvn.aurin.org.au/nexus/content/repositories/stable/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
+      <id>aurin</id>
+      <url>https://mvn.aurin.org.au/nexus/content/repositories/stable/</url>
     </repository>
     <repository>
-      <id>aurin-snapshots</id>
-      <url>https://mvn.aurin.org.au/nexus/content/repositories/snapshots/</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
+      <id>aurin-snapshots</id>
+      <url>https://mvn.aurin.org.au/nexus/content/repositories/snapshots/</url>
     </repository>
   </repositories>
-
-  <dependencies>
-
-  </dependencies>
-
   <build>
-
     <plugins>
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
-        <groupId>org.apache.maven.plugins</groupId>
         <version>1.7</version>
+        <executions>
+          <execution>
+            <id>compile</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <echo message="========== installing public dependencies ===================" />
+                <exec failonerror="true" dir="${project.basedir}" executable="npm">
+                  <arg value="install" />
+                </exec>
+              </target>
+            </configuration>
+          </execution>
+          <execution>
+            <id>test</id>
+            <phase>test</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target unless="skipTests" id="test">
+                <exec failonerror="true" dir="." executable="mocha">
+                  <arg value="--no-colors" />
+                </exec>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
         <dependencies>
           <dependency>
             <groupId>ant</groupId>
@@ -76,52 +108,17 @@
             <version>1.0b3</version>
             <exclusions>
               <exclusion>
-                <groupId>ant</groupId>
                 <artifactId>ant</artifactId>
+                <groupId>ant</groupId>
               </exclusion>
             </exclusions>
           </dependency>
         </dependencies>
-        <executions>
-          <execution>
-            <id>compile</id>
-            <phase>compile</phase>
-            <configuration>
-              <target>
-                <echo
-                  message="========== installing public dependencies ===================" />
-                <exec executable="npm" dir="${project.basedir}"
-                  failonerror="true">
-                  <arg value="install" />
-                </exec>
-              </target>
-            </configuration>
-            <goals>
-              <goal>run</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>test</id>
-            <phase>test</phase>
-            <goals>
-              <goal>run</goal>
-            </goals>
-            <configuration>
-              <target id="test" unless="skipTests">
-                <exec executable="mocha" dir="." failonerror="true">
-                  <arg value="--no-colors" />
-                </exec>
-              </target>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
-
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>properties-maven-plugin</artifactId>
       </plugin>
-
       <plugin>
         <groupId>com.google.code.maven-replacer-plugin</groupId>
         <artifactId>replacer</artifactId>
@@ -201,22 +198,6 @@
           </replacements>
         </configuration>
       </plugin>
-
     </plugins>
-
   </build>
-
-  <issueManagement>
-    <system>Redmine</system>
-    <url>https://projects.eresearch.unimelb.edu.au/</url>
-  </issueManagement>
-
-  <developers>
-    <developer>
-      <id>LM</id>
-      <name>Luca Morandini</name>
-      <email>lmorandini [you know] unimelb.edu.au</email>
-    </developer>
-  </developers>
-
 </project>

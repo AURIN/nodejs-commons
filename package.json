@@ -1,6 +1,6 @@
 {
   "name": "nodejs-commons",
-  "version": "0.6.3",
+  "version": "1.0.0",
   "description": "Library of functions used by all Node.js projects in AURIN",
   "licenses": [
     {
@@ -29,25 +29,25 @@
     "properties": "1.2.1",
     "enum": "0.2.5",
     "tracer": "0.7.1",
-    "node-uuid": "1.4.1",
-    "express": "3.2.5",
+    "uuid": "3.3.3",
+    "express": "4.17.x",
     "underscore": "1.8.x",
     "log4js": "0.6.x"
   },
   "devDependencies": {
-    "mocha": "2.5.x",
+    "mocha": "6.2.x",
     "chai": "3.4.x",
     "sandboxed-module": "2.0.x"
   },
   "scripts": {},
   "engines": {
-    "node": "v4.2.x"
+    "node": "v12.13.0"
   },
-  "_id": "au.org.aurin.nodejs-commons@0.6.3",
+  "_id": "au.org.aurin.nodejs-commons@1.0.0",
   "optionalDependencies": {},
   "_engineSupported": true,
-  "_npmVersion": "4.2.x",
-  "_nodeVersion": "v4.2.x",
+  "_npmVersion": "6.12.0",
+  "_nodeVersion": "v12.13.0",
   "_defaultsLoaded": false,
   "_from": ""
 }
