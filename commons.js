@@ -586,7 +586,7 @@ commons.composeUrl = function () {
  */
 commons.getConsulValue = function (json) {
   try {
-    return (new Buffer(json[0].Value, "base64")).toString();
+    return (new Buffer.from(json[0].Value, "base64")).toString();
   } catch (e) {
     (new module.exports.Event("error", "getConsulValue", "error", [e.title,
       e.message].join(" "), e.stack)).toConsole();
