@@ -1,6 +1,6 @@
 /**
  * commons.js
- * 
+ *
  * Library of common functions used by AURIN
  */
 "use strict";
@@ -27,7 +27,7 @@ var messages = new Enum([ "MEMORYALARM", "EXCEPTIONALARM", "COMMITSUICIDE" ]);
  * Returns the number of processes to spawn. If property aurin.<name>.processes
  * is 0 one per CPU is spawned, if that property is undefined, aurin.processes
  * is used instead
- * 
+ *
  * @param name
  *          of process
  * @return number of to spawn
@@ -65,7 +65,7 @@ commons.spawnApp = function() {
 
 /**
  * Starts a cluster of services
- * 
+ *
  * @param propertiesFile
  *          properties file
  * @param name
@@ -195,7 +195,7 @@ commons.startCluster = function(propertiesFile, name, startServer) {
 
 /**
  * Setup of a component
- * 
+ *
  * @param propertiesFile
  *          properties file
  * @param callback
@@ -231,7 +231,7 @@ commons.setup = function(propertiesFile, callback) {
 
 /**
  * Returns a property value given its name
- * 
+ *
  * @param propertyName
  */
 commons.getProperty = function(propertyName) {
@@ -240,7 +240,7 @@ commons.getProperty = function(propertyName) {
 
 /**
  * Sets a property value given its name
- * 
+ *
  * @param propertyName
  * @param propertyValue
  */
@@ -251,7 +251,7 @@ commons.setProperty = function(propertyName, propertyValue) {
 /**
  * Constructs a response for the return of a JSON object or, if the content-type
  * header is not application/json, of a string
- * 
+ *
  * @param obj
  *          Object to be returned
  * @param response
@@ -271,7 +271,6 @@ commons.setObjectResponse = function(args) {
 			.getProperty("maxage.default"));
 
 	args.response.header("Connection", "keep-alive");
-	args.response.header("Content-Length", args.obj.length);
 	args.response.header("Transfer-Encoding", "chunked");
 	args.response.header("Last-Modified", new Date());
 	if (!args.noCache) {
@@ -289,7 +288,7 @@ commons.setObjectResponse = function(args) {
 
 /**
  * Returns true if mimetype is JSON
- * 
+ *
  * @param mime-type
  *          to test
  */
@@ -302,7 +301,7 @@ commons.isJSON = function(mimetype) {
 
 /**
  * Returns true if mimetype is GeoJSON
- * 
+ *
  * @param mime-type
  *          to test
  */
@@ -315,7 +314,7 @@ commons.isGeoJSON = function(mimetype) {
 
 /**
  * Returns true if mimetype is JSONGraph
- * 
+ *
  * @param mime-type
  *          to test
  */
@@ -366,7 +365,7 @@ commons.getRSSMemoryMB = function() {
 
 /**
  * Injects the geoclassification endpoint into every Swagger's resource
- * 
+ *
  * @param resources
  *          {Object} Resources repo. as loaded with Swagger
  */
@@ -385,13 +384,13 @@ commons.injectEndpoints = function(resources) {
 
 /**
  * Prints out the given object on the debug log
- * 
- * @param obj Object to print 
+ *
+ * @param obj Object to print
  */
 commons.debug= function(obj) {
-  commons.logger.debug("-------------- {"); 
+  commons.logger.debug("-------------- {");
   commons.logger.debug(util.inspect(obj, {depth:null}));
-  commons.logger.debug("} -------------"); 
+  commons.logger.debug("} -------------");
 };
 
 /**
