@@ -38,7 +38,7 @@
     "nyc": "^11.0.0"
   },
   "scripts": {
-    "test": "mocha \"./test/test*.js\" --reporter mocha-junit-reporter --reporter list",
+    "test": "./node_modules/.bin/mocha ./test/test-unit.js --reporter mocha-junit-reporter --reporter list",
     "ci": "nyc mocha \"./test/test*.js\" --reporter mocha-junit-reporter --reporter-options mochaFile=target/junit.xml"
   },
   "engines": {

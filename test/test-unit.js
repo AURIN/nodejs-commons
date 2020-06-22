@@ -34,11 +34,9 @@ describe("test-unit.js", function () {
     // condition due to the tests below sometimes trying
     // to access commons before it has initialised.
     // We need a better solution than this.
-    setTimeout(done, 1000);
     commons.setup("./test/test.properties", function (lib) {
       done();
     });
-    // done(); // This is what we should do.
   });
 
   describe("commons", function () {

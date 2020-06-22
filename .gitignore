@@ -12,5 +12,6 @@ dependency-check
 node/
 /.idea/
 /.nyc_output/
+/.flattened-pom.xml
 target
 *.log

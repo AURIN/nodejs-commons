@@ -57,11 +57,11 @@ To run these test, following module have to be installed (versions are detailed 
 
 * Chai
 * Express
-* Mocha
+* Mocha (Mocha > 6.2.x)
 
 In addition, Maven has to be run once to write the properties file
 
-  `mvn test -Ddeployment=test -Dsystem=luca-dev`
+`mvn test -Ddeployment=test -Dsystem=luca-dev`
 
   
 # Cluster tests (for the cluster test to work, http://www.google.com must be reachable):

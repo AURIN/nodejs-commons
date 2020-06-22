@@ -391,7 +391,6 @@ commons.setResponseHeaders = function (args) {
  */
 commons.setObjectResponse = function (args) {
   commons.setResponseHeaders(args);
-  args.response.header("Content-Length", args.obj.length ? args.obj.length : defaults["objectlength"]);
   args.response.status((args.status !== undefined) ? args.status : 200);
   if (commons.isJSON(args.contentType)) {
     args.response.json(args.obj);
