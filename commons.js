@@ -271,7 +271,6 @@ commons.setObjectResponse = function(args) {
 			.getProperty("maxage.default"));
 
 	args.response.header("Connection", "keep-alive");
-	args.response.header("Transfer-Encoding", "chunked");
 	args.response.header("Last-Modified", new Date());
 	if (!args.noCache) {
 		args.response.header("Cache-Control", "max-age=" + maxAge);
