@@ -1,5 +1,5 @@
 {
-  "name": "node-commons",
+  "name": "nodejs-commons",
   "version": "1.0.1",
   "description": "Library of functions used by all Node.js projects in AURIN",
   "licenses": [
