@@ -27,7 +27,7 @@
   "main": "./commons.js",
   "dependencies": {
     "properties": "1.2.1",
-    "enum": "0.2.5",
+    "enum": "3.0.4",
     "tracer": "0.7.1",
     "uuid": "3.3.3",
     "express": "4.17.x",
