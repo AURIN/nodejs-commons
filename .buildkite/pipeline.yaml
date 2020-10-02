@@ -1,4 +1,6 @@
 ---
+env:
+  NODE_REGISTRY: "https://repo.aurin.cloud.edu.au/repository/npm-aurin/"
 steps:
   - label: "Linting :lint-roller:"
     command: "git diff-tree --no-commit-id --name-only -r ${BUILDKITE_COMMIT} | xargs pre-commit run --files"
@@ -23,9 +25,10 @@ steps:
   - label: "Publish"
     branches: "develop v*.*.*"
     commands:
-      - "npm publish"
+      # unscoped name needs sent to private repository explicitly
+      - "npm publish --registry=${NODE_REGISTRY}"
       - "npm run scope"
-      - "npm publish"
+      - "npm publish" # Scoped name uses .npmrc to find repository
     plugins:
       - docker#v3.7.0:
           always-pull: true
