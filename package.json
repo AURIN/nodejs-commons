@@ -1,5 +1,5 @@
 {
-  "name": "@AURIN/node-commons",
+  "name": "node-commons",
   "version": "1.0.1",
   "description": "Library of functions used by all Node.js projects in AURIN",
   "licenses": [
@@ -35,12 +35,11 @@
     "log4js": "0.6.x"
   },
   "devDependencies": {
-    "chai": "3.4.x",
-    "json": "^10.0.0",
-    "mocha": "6.2.x",
     "mocha-junit-reporter": "1.23.x",
-    "nyc": "^11.0.0",
-    "sandboxed-module": "2.0.x"
+    "mocha": "6.2.x",
+    "chai": "3.4.x",
+    "sandboxed-module": "2.0.x",
+    "nyc": "^11.0.0"
   },
   "scripts": {
     "prepublishOnly": "./scripts/add_build.sh",

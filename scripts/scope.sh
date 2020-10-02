@@ -7,7 +7,7 @@ scope() {
     echo "Package name already scoped"
   else
     echo "Package name not scoped"
-    json -I -f package.json -e "this.name=\"@AURIN/${npm_package_name}\""
+    json -I -f package.json -e "this.name=\"@aurin/${npm_package_name}\""
   fi
 }
 
