@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "node-commons",
   "version": "1.0.1",
   "description": "Library of functions used by all Node.js projects in AURIN",
   "licenses": [
@@ -42,8 +42,10 @@
     "nyc": "^11.0.0"
   },
   "scripts": {
-    "test": "mocha \"./test/test*.js\" --reporter mocha-junit-reporter --reporter list",
-    "ci": "nyc mocha \"./test/test*.js\" --reporter mocha-junit-reporter --reporter-options mochaFile=target/junit.xml"
+    "prepublish": "./scripts/add_build.sh",
+    "ci": "nyc mocha \"./test/test*.js\" --reporter mocha-junit-reporter --reporter-options mochaFile=target/junit.xml",
+    "scope": "./scripts/scope.sh",
+    "test": "mocha \"./test/test*.js\" --reporter mocha-junit-reporter --reporter list"
   },
   "engines": {
     "node": "v12.13.0"

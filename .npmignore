@@ -20,3 +20,4 @@ dependency-check/
 .scannerwork
 dependency-check*
 .tern-project
+*.iml

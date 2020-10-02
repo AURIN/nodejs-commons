@@ -3,16 +3,34 @@ steps:
   - label: "Linting :lint-roller:"
     command: "git diff-tree --no-commit-id --name-only -r ${BUILDKITE_COMMIT} | xargs pre-commit run --files"
   - label: "Test"
-    branches: "!develop"
-    commands:
-      - "mvn clean verify"
-  - label: "Sonar"
-    branches: "develop"
-    commands:
-      - "mvn clean verify"
+    branches: "*"
+    command:
+      - "npm ci"
+      - "npm test"
+    plugins:
+      - docker#v3.7.0:
+          always-pull: true
+          propagate-uid-gid: true
+          volumes:
+            - $HOME/.npm:/.npm
+            - $HOME/.npmrc:/workdir/.npmrc:ro
+          image: "node:12-buster"
+  #  - label: "Sonar"
+  #    branches: "develop"
+  #    commands:
+  #      - "mvn clean verify"
   - wait
-  - label: "Deploy"
+  - label: "Publish"
     branches: "develop"
     commands:
-      - "mvn clean deploy"
-      - "mvn -Pscoped clean  deploy"
+      - "npm publish"
+      - "npm run scope"
+      - "npm publish"
+    plugins:
+      - docker#v3.7.0:
+          always-pull: true
+          propagate-uid-gid: true
+          volumes:
+            - $HOME/.npm:/.npm
+            - $HOME/.npmrc:/workdir/.npmrc:ro
+          image: "node:12-buster"
