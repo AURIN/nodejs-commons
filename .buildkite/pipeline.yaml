@@ -22,17 +22,38 @@ steps:
   #    commands:
   #      - "mvn clean verify"
   - wait
-  - label: "Publish"
+  - label: "Publish unscoped"
     branches: "develop v*.*.*"
     commands:
+      - "npm install"
       # unscoped name needs sent to private repository explicitly
       - "npm publish --registry=${NODE_REGISTRY}"
+    plugins:
+      - docker#v3.7.0:
+          always-pull: true
+          propagate-uid-gid: true
+          environment:
+            - BUILDKITE
+            - BUILDKITE_BUILD_NUMBER
+            - BUILDKITE_TAG
+          volumes:
+            - $HOME/.npm:/.npm
+            - $HOME/.npmrc:/workdir/.npmrc:ro
+          image: "node:12-buster"
+  - label: "Publish scoped"
+    branches: "develop v*.*.*"
+    commands:
+      - "npm install"
       - "npm run scope"
       - "npm publish" # Scoped name uses .npmrc to find repository
     plugins:
       - docker#v3.7.0:
           always-pull: true
           propagate-uid-gid: true
+          environment:
+            - BUILDKITE
+            - BUILDKITE_BUILD_NUMBER
+            - BUILDKITE_TAG
           volumes:
             - $HOME/.npm:/.npm
             - $HOME/.npmrc:/workdir/.npmrc:ro

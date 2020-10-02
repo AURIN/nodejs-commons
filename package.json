@@ -42,7 +42,7 @@
     "nyc": "^11.0.0"
   },
   "scripts": {
-    "prepublish": "./scripts/add_build.sh",
+    "prepublishOnly": "./scripts/add_build.sh",
     "ci": "nyc mocha \"./test/test*.js\" --reporter mocha-junit-reporter --reporter-options mochaFile=target/junit.xml",
     "scope": "./scripts/scope.sh",
     "test": "mocha \"./test/test*.js\" --reporter mocha-junit-reporter --reporter list"
