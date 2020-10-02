@@ -21,7 +21,7 @@ steps:
   #      - "mvn clean verify"
   - wait
   - label: "Publish"
-    branches: "develop"
+    branches: "develop v*.*.*"
     commands:
       - "npm publish"
       - "npm run scope"
