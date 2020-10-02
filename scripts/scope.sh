@@ -8,6 +8,7 @@ scope() {
   else
     echo "Package name not scoped"
     json -I -f package.json -e "this.name=\"@aurin/${npm_package_name}\""
+    json -I -f package-lock.json -e "this.name=\"@aurin/${npm_package_name}\""
   fi
 }
 
