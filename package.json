@@ -28,7 +28,7 @@
   "dependencies": {
     "properties": "1.2.1",
     "enum": "0.2.5",
-    "tracer": "0.7.1",
+    "tracer": "1.1.4",
     "uuid": "3.3.3",
     "express": "4.17.x",
     "underscore": "1.8.x",
