@@ -37,7 +37,7 @@
   "devDependencies": {
     "chai": "3.4.x",
     "json": "^10.0.0",
-    "mocha": "6.2.x",
+    "mocha": "8.3.x",
     "mocha-junit-reporter": "1.23.x",
     "nyc": "^11.0.0",
     "sandboxed-module": "2.0.x"
